@@ -14,7 +14,6 @@ public class todoController {
     }
 
 /* Routen um ein Todo zu erstellen */
-
     @GetMapping("/createtodo")
     public String getCreateTodos() {
         return "createtodo";
