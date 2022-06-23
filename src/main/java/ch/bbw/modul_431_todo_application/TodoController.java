@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class todoController {
+public class TodoController {
 
 /* Routen um alle Todos zu sehen */
     @GetMapping("/")
