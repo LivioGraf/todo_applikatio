@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @Controller
 public class TodoController {
-    @Autowired UserRepo ob;
+    @Autowired UserRepo user;
 
 /* Routen um alle Todos zu sehen */
     @GetMapping("/")
@@ -21,12 +21,12 @@ public class TodoController {
 /* Routen um ein Todo zu erstellen */
     @GetMapping("/createtodo")
     public String getCreateTodos() {
-        ob.findAll();
-        System.out.println(ob.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
+        user.findAll();
+        System.out.println(user.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
         Todo temp = new Todo();
         temp.setTodoName("einkaufen");
-        ob.save(temp);
-        System.out.println(ob.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
+        user.save(temp);
+        System.out.println(user.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
         return "createtodo";
     }
 
