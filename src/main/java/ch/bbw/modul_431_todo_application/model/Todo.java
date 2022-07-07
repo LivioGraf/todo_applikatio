@@ -37,4 +37,11 @@ public class Todo {
         this.todoName = todoName;
     }
 
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", todoName='" + todoName + '\'' +
+                '}';
+    }
 }

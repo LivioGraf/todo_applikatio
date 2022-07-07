@@ -1,11 +1,16 @@
 package ch.bbw.modul_431_todo_application;
 
+import ch.bbw.modul_431_todo_application.model.Todo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.stream.Collectors;
+
 @Controller
 public class TodoController {
+    @Autowired UserRepo ob;
 
 /* Routen um alle Todos zu sehen */
     @GetMapping("/")
@@ -16,6 +21,12 @@ public class TodoController {
 /* Routen um ein Todo zu erstellen */
     @GetMapping("/createtodo")
     public String getCreateTodos() {
+        ob.findAll();
+        System.out.println(ob.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
+        Todo temp = new Todo();
+        temp.setTodoName("einkaufen");
+        ob.save(temp);
+        System.out.println(ob.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
         return "createtodo";
     }
 
