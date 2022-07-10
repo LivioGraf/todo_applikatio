@@ -21,12 +21,16 @@ public class TodoController {
 /* Routen um ein Todo zu erstellen. */
     @GetMapping("/createtodo")
     public String getCreateTodos() {
-        user.findAll();
-        System.out.println(user.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
+//        user.findAll();
+//        System.out.println(user.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
         Todo temp = new Todo();
+        Todo livio = new Todo();
+        livio.setTodoName("putzen");
         temp.setTodoName("einkaufen");
         user.save(temp);
+        user.save(livio);
         System.out.println(user.findAll().stream().map(n->String.valueOf(n)).collect(Collectors.joining("-", "{", "}")));
+        System.out.println(user.findAll());
         return "createtodo";
     }
 
